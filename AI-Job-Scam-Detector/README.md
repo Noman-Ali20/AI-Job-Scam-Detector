@@ -116,9 +116,12 @@ MySQL Database
 
 ### Scan Page
 
-![Scan](images/scanpage1.jpg)
+![Scan](images/scan1.jpg)
 
-![Scan](images/scanpage2.jpg)
+![Scan](images/scan2.jpg)
+
+### Result
+![Scan](images/result.jpg)
 
 ### Dashboard
 
