@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark bg-dark px-4">
+
+  <a class="navbar-brand">AI Scam Detector</a>
+
+  <div>
+
+    <a routerLink="/scan" class="nav-btn">Scan</a>
+
+    <a routerLink="/dashboard" class="nav-btn">Dashboard</a>
+
+    <button class="btn btn-danger" (click)="logout()">
+Logout
+</button>
+
+  </div>
+
+</nav>
+
+<router-outlet></router-outlet>

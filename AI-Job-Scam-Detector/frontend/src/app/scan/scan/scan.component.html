@@ -1,0 +1,157 @@
+<form #scanForm="ngForm">
+
+<div class="scan-container">
+
+  <div class="scan-card">
+
+    <h2>AI Scam Detector</h2>
+
+    <!-- TEXT SCAN -->
+
+    <div class="form-group">
+
+      <textarea
+        class="form-control"
+        placeholder="Paste job message or offer text..."
+        [(ngModel)]="text"
+        name="text"
+        required
+        #textField="ngModel">
+      </textarea>
+
+      <div class="error" *ngIf="textField.invalid && textField.touched">
+        Message is required
+      </div>
+
+    </div>
+
+
+    <!-- EMAIL -->
+
+    <div class="form-group">
+
+      <input
+        type="email"
+        class="form-control"
+        placeholder="HR Email"
+        [(ngModel)]="email"
+        name="email"
+        required
+        #emailField="ngModel">
+
+      <div class="error" *ngIf="emailField.invalid && emailField.touched">
+        Valid email is required
+      </div>
+
+    </div>
+
+
+    <!-- COMPANY -->
+
+    <div class="form-group">
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Company Name"
+        [(ngModel)]="company"
+        name="company"
+        required
+        #companyField="ngModel">
+
+      <div class="error" *ngIf="companyField.invalid && companyField.touched">
+        Company name is required
+      </div>
+
+    </div>
+
+
+    <!-- SCAN BUTTON -->
+
+    <button 
+      class="btn-scan"
+      (click)="scan()"
+      [disabled]="scanForm.invalid">
+
+      Scan Message
+
+    </button>
+
+
+    <!-- AI LOADER -->
+
+    <div *ngIf="loading" class="loader">
+
+      <div class="spinner"></div>
+
+      <p>AI analyzing message...</p>
+
+    </div>
+
+
+    <!-- FILE SCAN -->
+
+    <div class="upload-section">
+
+      <h4>Upload Screenshot / Offer Letter</h4>
+
+      <input 
+        type="file"
+        class="form-control"
+        accept=".png,.jpg,.jpeg,.pdf"
+        (change)="onFileSelected($event)">
+
+      <button 
+        class="btn-scan"
+        (click)="scanFile()"
+        [disabled]="!selectedFile">
+
+        Scan File
+
+      </button>
+
+
+      <div *ngIf="isLoading" class="loader">
+
+        <div class="spinner"></div>
+
+        <p>Analyzing message using AI...</p>
+
+      </div>
+
+    </div>
+
+
+    <!-- RESULT CARD -->
+
+    <div *ngIf="result" class="result-card">
+
+      <h3>Scan Result</h3>
+
+      <div
+        class="badge"
+        [ngClass]="{
+          'safe': result.result==='SAFE',
+          'sus': result.result==='SUSPICIOUS',
+          'fake': result.result==='FAKE'
+        }">
+
+        {{result.result}}
+
+      </div>
+
+      <p class="score">Risk Score: {{result.score}}</p>
+
+      <p class="description">
+
+        {{result.description}}
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</form>

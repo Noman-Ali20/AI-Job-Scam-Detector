@@ -1,0 +1,115 @@
+.dashboard-container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+/* DASHBOARD CARDS */
+
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.stat-card{
+  width:200px;
+  padding:20px;
+  border-radius:12px;
+  color:white;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.stat-card h3{
+  font-size:18px;
+}
+
+.stat-card p{
+  font-size:28px;
+  font-weight:bold;
+}
+
+/* CARD COLORS */
+
+.stat-card.total{
+  background:#0d6efd;
+}
+
+.stat-card.fake{
+  background:#dc3545;
+}
+
+.stat-card.sus{
+  background:#ffc107;
+  color:black;
+}
+
+.stat-card.safe{
+  background:#28a745;
+}
+
+/* TABLE */
+
+.table{
+  margin-top:15px;
+}
+
+td:first-child{
+  max-width:450px;
+  word-break:break-word;
+}
+
+/* CHART */
+
+.chart-container{
+  width:300px;
+  height:300px;
+  margin:auto;
+}
+
+.modal-backdrop{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-box{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  width:500px;
+  max-height:400px;
+  overflow:auto;
+  text-align:center;
+}
+
+td:first-child{
+  max-width:500px;
+}
+
+td:first-child button{
+  margin-left:10px;
+}
+
+.message-cell{
+  position:relative;
+  max-width:600px;
+}
+
+.view-btn{
+  margin-left:10px;
+  white-space:nowrap;
+}

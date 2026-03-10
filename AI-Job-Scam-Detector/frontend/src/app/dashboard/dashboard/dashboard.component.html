@@ -1,0 +1,150 @@
+<div class="dashboard-container">
+
+  <h2 class="title">Dashboard</h2>
+
+  <!-- ANALYTICS CARDS -->
+
+  <div class="cards">
+
+    <div class="stat-card total">
+      <h3>Total Scans</h3>
+      <p>{{stats?.TOTAL_SCANS}}</p>
+    </div>
+
+    <div class="stat-card fake">
+      <h3>Fake Messages</h3>
+      <p>{{stats?.FAKE}}</p>
+    </div>
+
+    <div class="stat-card sus">
+      <h3>Suspicious</h3>
+      <p>{{stats?.SUSPICIOUS}}</p>
+    </div>
+
+    <div class="stat-card safe">
+      <h3>Safe</h3>
+      <p>{{stats?.SAFE}}</p>
+    </div>
+
+  </div>
+
+
+  <!-- RECENT SCANS TABLE -->
+
+  <div class="card mt-5">
+
+    <div class="card-body">
+
+      <h4>Recent Scans</h4>
+
+      <table class="table table-hover w-100">
+
+        <thead>
+          <tr>
+            <th>Message</th>
+            <th>Result</th>
+            <th>Score</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let scan of recentScans">
+
+            <!-- MESSAGE SHORT -->
+
+            <td class="message-cell">
+
+  {{scan.inputText | slice:0:70}}...
+
+  <button
+  class="btn btn-sm btn-primary view-btn"
+  (click)="viewMessage(scan.inputText)">
+  View
+  </button>
+
+</td>
+
+
+            <!-- RESULT BADGE -->
+
+            <td>
+
+              <span class="badge"
+              [ngClass]="{
+                'bg-success':scan.result=='SAFE',
+                'bg-warning':scan.result=='SUSPICIOUS',
+                'bg-danger':scan.result=='FAKE'
+              }">
+
+                {{scan.result}}
+
+              </span>
+
+            </td>
+
+
+            <!-- SCORE -->
+
+            <td>{{scan.riskScore}}</td>
+
+
+            <!-- DATE FORMAT -->
+
+            <td>{{scan.scanDate | date:'medium'}}</td>
+
+            
+
+          </tr>
+
+        </tbody>
+
+      </table>
+      <!-- MESSAGE MODAL -->
+
+<div class="modal-backdrop" *ngIf="showModal">
+
+  <div class="modal-box">
+
+    <h4>Full Message</h4>
+
+    <p>{{selectedMessage}}</p>
+
+    <button class="btn btn-danger"
+    (click)="closeModal()">
+      Close
+    </button>
+
+  </div>
+
+  
+
+</div>
+
+
+    </div>
+    
+
+  </div>
+
+
+  <!-- CHART -->
+
+  <div class="card mt-5">
+
+  <div class="card-body text-center">
+
+    <h4>Scan Result Distribution</h4>
+
+    <div class="chart-container">
+
+      <canvas id="scanChart"></canvas>
+
+    </div>
+
+  </div>
+
+</div>
+
+</div>
