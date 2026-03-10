@@ -112,15 +112,17 @@ MySQL Database
 
 ### Login Page
 
-(Add screenshot later)
+![Login](images/login.jpg)
 
 ### Scan Page
 
-(Add screenshot later)
+![Scan](images/scanpage1.jpg)
 
-### Admin Dashboard
+![Scan](images/scanpage2.jpg)
 
-(Add screenshot later)
+### Dashboard
+
+![Dashboard](images/dashboard.jpg)
 
 ---
 
