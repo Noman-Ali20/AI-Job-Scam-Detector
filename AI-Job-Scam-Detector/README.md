@@ -121,7 +121,7 @@ MySQL Database
 ![Scan](images/scan2.jpg)
 
 ### Result
-![Scan](images/result.jpg)
+![Result](images/result.jpg)
 
 ### Dashboard
 
